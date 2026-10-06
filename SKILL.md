@@ -173,7 +173,7 @@ so no document may claim full-level conformance.
 | Full level | Closed. Do not claim it |
 | Reviewed level | Available, Simplified Chinese and English modules |
 | Adapted level | Available, Simplified Chinese and English modules |
-| Simplified Chinese module | Reviewed level, four gates pass, 26 unit tests pass |
+| Simplified Chinese module | Reviewed level, four gates pass, 27 unit tests pass |
 | English module | Reviewed level, English gate passes |
 | Other languages | Guide level only |
 
@@ -187,7 +187,7 @@ so no document may claim full-level conformance.
   product compliance.
 - Referenced standards follow their current effective edition. Verify the
   edition before adoption.
-- The scripts ship 26 unit tests. After changing a script, re-run the tests,
+- The scripts ship 27 unit tests. After changing a script, re-run the tests,
   then re-run the four gates.
 
 ## Known limits

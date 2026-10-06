@@ -4,7 +4,7 @@ All versions, in reverse order. A version that changes only tooling says so.
 
 ## 1.2 — 2026-10-06
 
-Tooling and index only. No rule content changed.
+Tooling, index, and presentation only. No rule content changed.
 
 - Gate script directory collection became recursive and skips hidden
   directories, so documents nested in subdirectories are no longer missed.
@@ -12,8 +12,18 @@ Tooling and index only. No rule content changed.
   from any working directory.
 - Added an optional `--termbase <path>` argument so an organisation can check
   against its own termbase. The parser was refactored into a testable function.
-- Unit tests grew from 24 to 26. Recursive collection and the termbase argument
-  each have a test.
+- Fixed a gap in the gate scripts against TOOL-020. Markdown image and link
+  addresses were not masked, so the percent-encoded fragments inside a badge
+  URL were counted as English words and markdown links broke sentence counts.
+  The mask keeps the alternative text and the link text, and drops the
+  address. Documented because it is a defect the standard required and the
+  scripts had not delivered.
+- Unit tests grew from 26 to 27. The address mask has a test, and that test
+  includes a reverse case proving real English sentences are still caught.
+- Both READMEs gained badges and repository metadata: a description naming the
+  rule count, the modules, the extensions, the termbase, the gates, and the
+  standards, plus twelve topics for discoverability. Badges were re-checked
+  through all four gates after being added.
 - The index file was itself revised under the standard: six sentences over the
   50-character descriptive limit, one over the 100-character hard ceiling, and
   two mixed-script spacing misses were fixed. Table rows are counted as layout,

@@ -53,9 +53,22 @@ def mask_inline_code(line: str) -> str:
     return INLINE_CODE.sub(lambda m: " " * len(m.group(0)), line)
 
 
+MD_LINK = re.compile(r"(!?\[[^\]]*\])\(([^)\n]*)\)")
+
+
+def mask_markdown_urls(text: str) -> str:
+    """屏蔽 Markdown 图片与链接的地址部分，保留替代文字。
+
+    TOOL-020 规定检查范围排除命令与路径。链接地址是路径，替代文字才是给人
+    读的正文。不屏蔽会把地址里的百分号编码当成正文词统计。
+    """
+    return MD_LINK.sub(
+        lambda m: m.group(1) + " " * (len(m.group(2)) + 2), text)
+
+
 def count_sentence(sentence: str) -> int:
     """ZH-010 计数规则；标准号与编号豁免，连续数字串按一个词计。"""
-    s = mask_inline_code(sentence)
+    s = mask_inline_code(mask_markdown_urls(sentence))
     # 术语与编号豁免：标准号、版本号、规则编号（字母加数字）整体不计
     s = re.sub(r"[A-Za-z]+[\s-]?\d+(?:[.\-:]\d+)*", " ", s)
     # 连续数字串按一个词计，用占位符保留其词位
@@ -153,14 +166,16 @@ WORD_TOKEN = re.compile(r"[A-Za-z0-9]+(?:[-'’][A-Za-z0-9]+)*")
 
 def count_words(sentence: str) -> int:
     """EN-009 计数规则：按空格分词，连字符复合词与缩写各计一词。"""
-    s = mask_inline_code(sentence)
+    s = mask_inline_code(mask_markdown_urls(sentence))
     s = re.sub(r"[A-Za-z]+[\s-]?\d+(?:[.\-:]\d+)*", " ", s)
     return len(WORD_TOKEN.findall(s))
 
 
 def is_english_sentence(sentence: str) -> bool:
-    letters = sum(ch.isascii() and ch.isalpha() for ch in sentence)
-    cjk = sum("一" <= ch <= "鿿" for ch in sentence)
+    """按 TOOL-020 排除链接地址后再判定，避免地址里的编码被当成英文。"""
+    s = mask_markdown_urls(sentence)
+    letters = sum(ch.isascii() and ch.isalpha() for ch in s)
+    cjk = sum("一" <= ch <= "鿿" for ch in s)
     return letters > 20 and letters > cjk * 2
 
 

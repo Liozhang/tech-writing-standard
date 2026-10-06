@@ -109,7 +109,7 @@ python scripts/doccheck.py <文件或目录> --term --termbase <术语库.csv>
 python scripts/test_doccheck.py
 ```
 
-1.2 版为 26 项，全部通过。
+1.2 版为 27 项，全部通过。
 
 ## 双语策略
 

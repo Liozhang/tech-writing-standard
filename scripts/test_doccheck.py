@@ -11,9 +11,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from doccheck import (count_sentence, is_enumeration, split_sentences,
-                      mask_inline_code, RULE_DEF, check_file, count_words,
-                      is_english_sentence, check_english, check_accessibility,
-                      load_termbase, check_terms, collect, termbase_path_from)
+                      mask_inline_code, mask_markdown_urls, RULE_DEF,
+                      check_file, count_words, is_english_sentence, check_english,
+                      check_accessibility, load_termbase, check_terms, collect,
+                      termbase_path_from)
 
 CASES = []
 
@@ -234,6 +235,23 @@ def _():
         found = collect([root])
         names = sorted(p.relative_to(root).as_posix() for p in found)
         assert names == ["子目录/嵌套.md", "顶层.md"], names
+
+
+@case("Markdown 地址屏蔽：替代文字保留，地址不计")
+def _():
+    line = "[![许可证](https://img.shields.io/badge/许可证-MIT-yellow.svg)](LICENSE)"
+    masked = mask_markdown_urls(line)
+    assert "许可证" in masked, masked
+    assert "shields.io" not in masked, masked
+    # 地址中的字符不进入统计，替代文字与链接文字保留
+    assert "MIT" not in masked, masked
+    assert "LICENSE" in masked, masked
+    # 地址里的百分号编码不应再计入英文句判定
+    long_url = "[![门禁](https://img.shields.io/badge/%E9%97%A8%E7%A6%81-4%20%E7%B1%BB%E9%9B%B6%E5%91%BD%E4%B8%AD-brightgreen.svg)](#使用门禁脚本)"
+    assert not is_english_sentence(long_url), long_url
+    # 真正的英文句子仍应被判定，屏蔽不得放过真实英文
+    real = "This sentence is written in English and is long enough to be counted."
+    assert is_english_sentence(real), real
 
 
 @case("术语库参数：--termbase 指定路径，缺省走脚本同目录")
