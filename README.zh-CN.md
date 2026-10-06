@@ -2,6 +2,13 @@
 
 一套可执行的产品类技术文档写作规范，附带四类能跑的门禁脚本。
 
+[![许可证](https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-MIT-yellow.svg)](LICENSE)
+[![版本](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-1.2-blue.svg)](CHANGELOG.md)
+[![单元测试](https://img.shields.io/badge/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-26%20%E9%A1%B9%E9%80%9A%E8%BF%87-brightgreen.svg)](scripts/test_doccheck.py)
+[![门禁](https://img.shields.io/badge/%E9%97%A8%E7%A6%81-4%20%E7%B1%BB%E9%9B%B6%E5%91%BD%E4%B8%AD-brightgreen.svg)](#%E5%8D%95%E7%8B%AC%E4%BD%BF%E7%94%A8%E9%97%A8%E7%A6%81%E8%84%9A%E6%9C%AC)
+[![语言](https://img.shields.io/badge/%E8%AF%AD%E8%A8%80-%E8%8B%B1%E6%96%87%20%7C%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-orange.svg)](#%E5%8F%8C%E8%AF%AD%E7%AD%96%E7%95%A5)
+[![依据](https://img.shields.io/badge/%E4%BE%9D%E6%8D%AE-ISO%2024495--1%20%7C%20ASD--STE100-lightgrey.svg)](#%E8%A7%84%E5%88%99%E7%9A%84%E6%9D%A5%E6%BA%90%E6%A0%87%E5%87%86)
+
 写完文档再检查，输出分必须违反、应该违反、待人工复核三类的修订清单。规则可
 逐条追溯到国际标准。规范能证明什么，就写什么：已承诺的、已有证据的、仍然开
 放的，三者分开写。

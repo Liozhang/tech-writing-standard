@@ -3,6 +3,15 @@
 An executable standard for product technical documentation, with four gate
 scripts you can run.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.2-blue.svg)](CHANGELOG.md)
+[![Tests](https://img.shields.io/badge/tests-26%20passing-brightgreen.svg)](scripts/test_doccheck.py)
+[![Gates](https://img.shields.io/badge/gates-4%20modes%2C%20zero%20hits-brightgreen.svg)](#use-the-gate-scripts-standalone)
+[![Language](https://img.shields.io/badge/language-EN%20%7C%20zh--CN-orange.svg)](#bilingual-policy)
+[![Basis](https://img.shields.io/badge/basis-ISO%2024495--1%20%7C%20ASD--STE100-lightgrey.svg)](#sources-the-rules-are-traced-to)
+[![Stars](https://img.shields.io/github/stars/Liozhang/tech-writing-standard.svg)](https://github.com/Liozhang/tech-writing-standard/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/Liozhang/tech-writing-standard.svg)](https://github.com/Liozhang/tech-writing-standard/commits/main)
+
 Write a manual, then check it. The result is a revision list sorted into
 must-level violations, should-level violations, and items that need a human.
 Rules are traceable to international standards, and every claim about what the
