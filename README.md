@@ -62,6 +62,27 @@ by-product of the code. It is an input that changes how well both people and
 models understand the code, which is why this repository treats it as
 something written to a standard and then measured.
 
+**6. Controlled language became a prompt, and a prompt has no dictionary.** On
+2 October 2026 Andrej Karpathy posted that he asks language models to explain
+topics in ASD-STE100. That is the controlled English built for aircraft
+maintenance manuals. He reports that its heavy constraints on clean writing
+style produce text he finds a lot more readable. Because the standard is
+stringent, he sometimes asks for 80 percent of the way there.
+
+The idea had already spread through the developer community. Several
+open-source skills applied STE rules to text that agents read.
+
+Two limits are now documented. The standard is built on a dictionary of about
+900 approved words. A language model does not have it, so the result is
+STE-flavoured English, not STE. Strictness also trades content for brevity. In
+a small August 2026 experiment, a loose instruction cut Claude's average
+sentence from about 18 words to 9 or 10. It also lost 8.5 percent of
+code-specific facts, and the full instruction lost 46.8 percent.
+
+A controlled language needs three things to be usable. It needs a word list,
+rules that can be checked, and a way to apply it partially. ASD-STE100 covers
+English only. This repository builds those three parts for two languages.
+
 ## What you get
 
 | Part | What it does |
@@ -186,6 +207,8 @@ Background reading cited above:
 - [Karpathy: never felt this behind as a programmer, Yahoo News, 2025-12-30](https://uk.news.yahoo.com/)
 - [Exploratory study on LLM-generated code and comments, arXiv, 2026-07-02](https://arxiv.org/)
 - [Natural language-focused software engineering, Eghbali, 2026](https://software-lab.org/)
+- [Make LLMs write like an aircraft manual, Search Engine Journal, 2026-10-02](https://www.searchenginejournal.com/karpathy-llm-aircraft-manual-writing/591813/)
+- [ASD-STE100 and what it has to do with LLMs, Golubic, 2026-10-02](https://kgolubic.com/posts/asd-ste100-and-llms/)
 
 ## Origin of the rule set
 
