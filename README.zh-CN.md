@@ -83,13 +83,37 @@ ASD-STE100 只覆盖英语。本仓库为两种语言把这三样都建了出来
 
 ## 作为技能安装
 
+本仓库遵循 Agent Skills 规范，因此 ZCode、Claude Code 以及其他支持该格式的
+客户端都用同样的方式安装。把目录复制进对应客户端的技能目录即可。
+
+| 客户端 | 用户级路径 | 项目级路径 |
+|---|---|---|
+| ZCode | `~/.zcode/skills/` | 无 |
+| Claude Code | `~/.claude/skills/` | `.claude/skills/` |
+
 ```bash
+# ZCode，全部项目可用
 cp -r tech-writing-standard ~/.zcode/skills/
+
+# Claude Code，全部项目可用
+cp -r tech-writing-standard ~/.claude/skills/
+
+# Claude Code，仅当前项目可用
+cp -r tech-writing-standard .claude/skills/
 ```
 
-`SKILL.md` 是英文入口，`SKILL.zh-CN.md` 是中文入口。技能系统默认加载
+两条兼容性说明。第一，技能名为 `tech-writing-standard`，只用小写字母、数
+字和连字符，且与目录名一致，符合规范对名称的约束。第二，描述为 962 个字
+符，低于规范设定的 1024 字符上限，因此在会校验该上限的客户端中可以正常
+安装。
+
+`SKILL.md` 是英文入口，`SKILL.zh-CN.md` 是中文入口。两类客户端都默认加载
 `SKILL.md`；要用中文工作，在安装后的目录里把 `SKILL.zh-CN.md` 复制为
-`SKILL.md`。
+`SKILL.md`。仓库其余部分不用改：`references/zh-Hans/` 下的中文权威文本两
+种入口都会按需读取。
+
+要确认技能是否被识别，可以让客户端列出已有技能，或者用一句触发请求试，
+例如"按写作规范检查这份手册"。
 
 ## 单独使用门禁脚本
 

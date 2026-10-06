@@ -2,6 +2,22 @@
 
 All versions, in reverse order. A version that changes only tooling says so.
 
+## 1.2.1 — 2026-10-06
+
+Skill metadata only. No rule content changed.
+
+- The skill description in `SKILL.md` was 1277 characters. The Agent Skills
+  specification, which Claude Code enforces, caps the description at 1024
+  characters. The skill installed in ZCode but would not have been accepted by
+  a client that validates the limit. The description is now 962 characters and
+  keeps every trigger phrase.
+- Both READMEs gained a two-platform install table covering ZCode and Claude
+  Code, user and project scope, with the two compatibility facts that make the
+  install work: the name matches the directory and uses only the allowed
+  characters, and the description is inside the limit.
+- Version bumped to 1.2.1 rather than folding the fix into 1.2, because v1.2 is
+  already released and a released tag should not move.
+
 ## 1.2 — 2026-10-06
 
 Tooling, index, and presentation only. No rule content changed.

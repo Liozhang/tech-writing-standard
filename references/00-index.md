@@ -6,8 +6,10 @@ Simplified Chinese module and the full review record lives in
 
 ## Version
 
-Version 1.2, dated 2026-10-06. Version 1.2 changed tooling and the index file
-only. No rule content changed.
+Version 1.2.1, dated 2026-10-06. Version 1.2 changed tooling, the index, and
+presentation. Version 1.2.1 shortened the skill description to fit the
+1024-character limit in the Agent Skills specification, which Claude Code
+enforces. No rule content changed in either.
 
 ## English summaries
 

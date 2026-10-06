@@ -4,7 +4,7 @@ An executable standard for product technical documentation, with four gate
 scripts you can run.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.2-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.2.1-blue.svg)](CHANGELOG.md)
 [![Tests](https://img.shields.io/badge/tests-27%20passing-brightgreen.svg)](scripts/test_doccheck.py)
 [![Gates](https://img.shields.io/badge/gates-4%20modes%2C%20zero%20hits-brightgreen.svg)](#use-the-gate-scripts-standalone)
 [![Language](https://img.shields.io/badge/language-EN%20%7C%20zh--CN-orange.svg)](#bilingual-policy)
@@ -105,17 +105,43 @@ English only. This repository builds those three parts for two languages.
 | Gate scripts | Four modes: Chinese sentence length, English sentence length, accessibility, term consistency |
 | Worked example | A bioinformatics runbook written under the standard, with its own termbase |
 
-## Install as a ZCode skill
+## Install as a skill
 
-Copy this directory into your user skills folder:
+The repository follows the Agent Skills specification, so it installs the same
+way in ZCode, Claude Code, and any other client that reads that format. Copy
+the directory into the skills folder of the client you use.
+
+| Client | User-level path | Project-level path |
+|---|---|---|
+| ZCode | `~/.zcode/skills/` | — |
+| Claude Code | `~/.claude/skills/` | `.claude/skills/` |
 
 ```bash
+# ZCode, all projects
 cp -r tech-writing-standard ~/.zcode/skills/
+
+# Claude Code, all projects
+cp -r tech-writing-standard ~/.claude/skills/
+
+# Claude Code, this project only
+cp -r tech-writing-standard .claude/skills/
 ```
 
+Two compatibility notes. First, the skill name is `tech-writing-standard`,
+which satisfies the specification rule that a name use only lowercase
+letters, numbers, and hyphens and match its directory name. Second, the
+description is 962 characters, inside the 1024-character limit the
+specification sets, so the skill validates in clients that check the limit.
+
 `SKILL.md` is the English entry point. `SKILL.zh-CN.md` is the Chinese entry
-point; ZCode loads `SKILL.md` by default, so to work in Chinese copy
-`SKILL.zh-CN.md` over `SKILL.md` inside the installed directory.
+point; both clients load `SKILL.md` by default, so to work in Chinese copy
+`SKILL.zh-CN.md` over `SKILL.md` inside the installed directory. Nothing else
+in the repository changes: the Chinese authoritative text in
+`references/zh-Hans/` is read on demand either way.
+
+To check that the installed skill is recognised, ask the client to list its
+skills, or trigger it with a request such as "check this manual against the
+writing standard".
 
 ## Use the gate scripts standalone
 
@@ -142,7 +168,7 @@ Run the unit tests:
 python scripts/test_doccheck.py
 ```
 
-27 tests, all passing as of version 1.2.
+27 tests, all passing as of version 1.2.1.
 
 ## Repository layout
 

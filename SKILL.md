@@ -1,26 +1,21 @@
 ---
 name: tech-writing-standard
-description: >
-  Write, review, and audit product technical documentation against the General
-  Technical Documentation Writing Standard, version 1.2. The standard is built
-  on the ISO 24495-1 plain-language principles and IEC/IEEE 82079-1 preparation
-  of information for use. It ships two language modules (Simplified Chinese and
-  English), four domain extensions (aerospace and defence, medical, mechanical,
-  software), a concept-first termbase, and four executable gate scripts for
-  Chinese sentence length, English sentence length, accessibility, and term
-  consistency. Output is a revision list sorted into must-level violations,
-  should-level violations, and items needing human review, plus a conformance
-  level verdict. Use when the user asks to write or revise product manuals,
-  user guides, software documentation, operations runbooks, or training
-  material; to review or polish technical documentation; to check documents
-  against a writing standard; to run gate checks; to reconcile terminology; to
-  author a new language module; or mentions plain language, ASD-STE100,
-  Simplified Technical English, ISO 24495-1, or documentation conformance. Not
-  for research papers, theses, marketing copy, or other publication-oriented
-  writing, and not for languages other than Simplified Chinese and English.
+description: 'Write, review, and audit product technical documentation against
+  a standard built on ISO 24495-1 plain language and IEC/IEEE 82079-1. Ships two
+  language modules (Simplified Chinese, English), four domain extensions, a concept-first
+  termbase, and four executable gate scripts: Chinese sentence length, English
+  sentence length, accessibility, and term consistency. Output is a revision list
+  split into must-level, should-level, and human-review items, plus a conformance
+  verdict. Use when the user asks to write or revise product manuals, user guides,
+  software documentation, runbooks, or training material; to review, polish, or
+  check documentation against a writing standard; to run gates; to reconcile terminology;
+  to author a language module; or mentions plain language, ASD-STE100, Simplified
+  Technical English, ISO 24495-1, or documentation conformance. Not for research
+  papers, theses, marketing copy, or languages other than Simplified Chinese and
+  English.'
 allowed-tools: Bash Read Write Edit Glob Grep
 metadata:
-  version: "1.2"
+  version: 1.2.1
   license: MIT
 ---
 
